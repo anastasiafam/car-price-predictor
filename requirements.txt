@@ -1,0 +1,12 @@
+pandas
+numpy
+scikit-learn
+catboost
+joblib
+fastapi
+uvicorn
+pydantic
+optuna
+requests
+streamlit
+pytest
