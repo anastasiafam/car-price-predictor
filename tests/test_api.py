@@ -1,6 +1,7 @@
 # tests/test_api.py
 import requests
 
+
 def test_api_prediction():
     sample = {
         "Manufacturer": "HONDA",
@@ -18,11 +19,12 @@ def test_api_prediction():
         "Color": "Black",
         "Airbags": 4,
         "Age": 10,
-        "Levy_rate": 0.05
+        "Levy_rate": 0.05,
     }
     response = requests.post("http://localhost:8000/predict", json=sample)
     assert response.status_code == 200
     assert "predicted_price" in response.json()
+
 
 def test_api_missing_field():
     # Пропущено поле "Model"
@@ -41,8 +43,8 @@ def test_api_missing_field():
         "Color": "Black",
         "Airbags": 4,
         "Age": 10,
-        "Levy_rate": 0.05
+        "Levy_rate": 0.05,
     }
     response = requests.post("http://localhost:8000/predict", json=sample)
-    assert response.status_code == 422  # Unprocessable Entity
+    assert response.status_code == 422
     assert "detail" in response.json()

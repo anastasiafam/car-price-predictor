@@ -1,3 +1,5 @@
 /catboost_info
 dynamic_car.ipynb
 .pytest_cache
+.mypy_cache
+.tox

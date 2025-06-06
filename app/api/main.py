@@ -1,10 +1,11 @@
 # app/api/main.py
-from fastapi import FastAPI
-from pydantic import BaseModel, Field
+import os
+
 import joblib
 import pandas as pd
-import os
 from catboost import Pool
+from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
 # Загружаем модель
 model_path = "app/model/model.pkl"
@@ -18,11 +19,17 @@ app = FastAPI()
 
 # Категориальные признаки для модели
 cat_features = [
-    "Manufacturer", "Model", "Category", "Fuel type",
-    "Gear box type", "Drive wheels", "Wheel", "Color"
+    "Manufacturer",
+    "Model",
+    "Category",
+    "Fuel type",
+    "Gear box type",
+    "Drive wheels",
+    "Wheel",
+    "Color",
 ]
 
-# Описание входных данных
+
 class CarInput(BaseModel):
     Manufacturer: str = Field(..., example="HONDA")
     Model: str = Field(..., example="CIVIC")
@@ -41,30 +48,42 @@ class CarInput(BaseModel):
     Age: int = Field(..., example=10)
     Levy_rate: float = Field(..., example=0.05)
 
+
 @app.post("/predict")
 def predict_price(car: CarInput):
-    raw_input = car.model_dump()
-
-    # Преобразование ключей под обученную модель
+    raw_input = car.dict()
     rename_map = {
         "Leather_interior": "Leather interior",
         "Fuel_type": "Fuel type",
         "Gear_box_type": "Gear box type",
         "Drive_wheels": "Drive wheels",
-        "Engine_volume": "Engine volume"
+        "Engine_volume": "Engine volume",
     }
     for old_key, new_key in rename_map.items():
         raw_input[new_key] = raw_input.pop(old_key)
 
-    # Жёстко задаём порядок колонок как в обучении
     feature_order = [
-        'Manufacturer', 'Model', 'Category', 'Leather interior', 'Fuel type',
-        'Engine volume', 'Mileage', 'Cylinders', 'Gear box type',
-        'Drive wheels', 'Doors', 'Wheel', 'Color', 'Airbags', 'Age',
-        'Levy_rate'
+        "Manufacturer",
+        "Model",
+        "Category",
+        "Leather interior",
+        "Fuel type",
+        "Engine volume",
+        "Mileage",
+        "Cylinders",
+        "Gear box type",
+        "Drive wheels",
+        "Doors",
+        "Wheel",
+        "Color",
+        "Airbags",
+        "Age",
+        "Levy_rate",
     ]
 
-    input_df = pd.DataFrame([[raw_input[col] for col in feature_order]], columns=feature_order)
+    input_df = pd.DataFrame(
+        [[raw_input[col] for col in feature_order]], columns=feature_order
+    )
     input_pool = Pool(input_df, cat_features=cat_features)
     prediction = model.predict(input_pool)[0]
     return {"predicted_price": round(prediction, 2)}

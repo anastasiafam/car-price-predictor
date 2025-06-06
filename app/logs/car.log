@@ -1,0 +1,28 @@
+2025-06-06 15:13:03,344 - INFO - Loading configuration...
+2025-06-06 15:13:03,349 - INFO - Configuration loaded successfully.
+2025-06-06 15:13:03,350 - INFO - Loading dataset...
+2025-06-06 15:13:03,415 - INFO - Dataset loaded successfully: 13418 records
+2025-06-06 15:13:03,459 - INFO - Columns processed successfully.
+2025-06-06 15:13:03,517 - INFO - Data split successfully.
+2025-06-06 15:13:03,518 - INFO - Starting hyperparameter optimization...
+2025-06-06 15:14:03,618 - INFO - RMSE: 1792.99 for trial with params: {'iterations': 941, 'learning_rate': 0.08760079996088169, 'depth': 10, 'l2_leaf_reg': 7.120609509352001, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:14:16,768 - INFO - RMSE: 2345.57 for trial with params: {'iterations': 368, 'learning_rate': 0.09884281807152871, 'depth': 6, 'l2_leaf_reg': 8.588397421610743, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:14:32,710 - INFO - RMSE: 2255.10 for trial with params: {'iterations': 403, 'learning_rate': 0.12574682076225838, 'depth': 7, 'l2_leaf_reg': 5.109394627648989, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:15:14,974 - INFO - RMSE: 1860.58 for trial with params: {'iterations': 903, 'learning_rate': 0.020627523081865242, 'depth': 8, 'l2_leaf_reg': 1.8968684817374244, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:15:20,112 - INFO - RMSE: 2334.98 for trial with params: {'iterations': 104, 'learning_rate': 0.26212550750871416, 'depth': 9, 'l2_leaf_reg': 1.2705955420044557, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:15:48,961 - INFO - RMSE: 2231.67 for trial with params: {'iterations': 530, 'learning_rate': 0.14196672606063784, 'depth': 9, 'l2_leaf_reg': 6.396435469447471, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:15:51,835 - INFO - RMSE: 2505.66 for trial with params: {'iterations': 111, 'learning_rate': 0.18802726536421616, 'depth': 5, 'l2_leaf_reg': 0.6367033892262834, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:15:58,564 - INFO - RMSE: 2737.48 for trial with params: {'iterations': 299, 'learning_rate': 0.22661391672697676, 'depth': 4, 'l2_leaf_reg': 7.018155536333184, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:16:29,245 - INFO - RMSE: 1986.11 for trial with params: {'iterations': 657, 'learning_rate': 0.18321254207606313, 'depth': 8, 'l2_leaf_reg': 8.162816736335998, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:16:53,970 - INFO - RMSE: 1865.79 for trial with params: {'iterations': 938, 'learning_rate': 0.2607099059942497, 'depth': 8, 'l2_leaf_reg': 1.6683370705933056, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:17:41,837 - INFO - RMSE: 1854.77 for trial with params: {'iterations': 779, 'learning_rate': 0.04777959319111048, 'depth': 10, 'l2_leaf_reg': 3.947248836324736, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:18:27,621 - INFO - RMSE: 1978.96 for trial with params: {'iterations': 739, 'learning_rate': 0.04722027938124875, 'depth': 10, 'l2_leaf_reg': 3.6679686838122967, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:19:17,483 - INFO - RMSE: 1901.29 for trial with params: {'iterations': 799, 'learning_rate': 0.07764756693942154, 'depth': 10, 'l2_leaf_reg': 4.460300659218481, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:20:12,572 - INFO - RMSE: 3582.36 for trial with params: {'iterations': 955, 'learning_rate': 0.010159815283839878, 'depth': 10, 'l2_leaf_reg': 9.77746894144552, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:20:58,267 - INFO - RMSE: 1847.76 for trial with params: {'iterations': 827, 'learning_rate': 0.06805294405158441, 'depth': 9, 'l2_leaf_reg': 3.0703995008144744, 'loss_function': 'RMSE', 'random_seed': 42, 'verbose': 0}
+2025-06-06 15:20:58,279 - INFO - Best parameters found: {'iterations': 941, 'learning_rate': 0.08760079996088169, 'depth': 10, 'l2_leaf_reg': 7.120609509352001}
+2025-06-06 15:21:56,325 - INFO - Model trained successfully.
+2025-06-06 15:21:56,347 - INFO - RMSE: 1792.99
+2025-06-06 15:21:56,400 - INFO - Best parameters: {'iterations': 941, 'learning_rate': 0.08760079996088169, 'depth': 10, 'l2_leaf_reg': 7.120609509352001}
+2025-06-06 15:21:56,459 - INFO - Model and results saved successfully.
+2025-06-06 15:21:56,459 - INFO - Training process completed.
