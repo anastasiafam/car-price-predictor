@@ -68,20 +68,20 @@ pytest tests/test_api.py
 ```
 car-price-predictor/
 ├── app/
-│ ├── api/
-│ │ └── main.py    # FastAPI API для предсказаний
-│ └── model/       # сохраненная модель
-├── data/
-│ └── cars.csv     # обучающий датасет
+│   ├── api/
+│   │   └── main.py        # FastAPI API для предсказаний
+│   └── model/             # Сохраненная модель
 ├── tests/
-│ └── test_api.py  # тесты API
-├── streamlit_app.py 
-├── train.py       # обучение модели CatBoost
-├── run_all.bat    # автоматический запуск API и Streamlit
-├── requirements.txt 
-├── pyproject.toml # настройки сборки пакета
-├── LICENSE 
-└── README.md 
+│   ├── test_api.py        # Тесты API
+├── streamlit_app.py       # Streamlit интерфейс
+├── train.py               # Скрипт обучения модели CatBoost
+├── requirements.txt       
+├── pyproject.toml         # Настройки пакета
+├── Dockerfile             # Docker образ API
+├── docker-compose.yml     # Docker Compose файл
+├── LICENSE               
+└── README.md             
+
 ```
 
 ---
