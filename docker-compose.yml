@@ -1,12 +1,12 @@
 services:
   app:
     build:
-      context: .  # Контекст сборки (корень проекта)
-      dockerfile: Docker/Dockerfile  # Путь к Dockerfile в папке Docker
+      context: .
+      dockerfile: Docker/Dockerfile
     container_name: car-price-predictor
     ports:
-      - "8000:8000"  # Порт для FastAPI
-      - "8501:8501"  # Порт для Streamlit
+      - "8000:8000" 
+      - "8501:8501" 
     volumes:
-      - .:/app  # Монтируем текущую папку в контейнер
-    restart: unless-stopped  # Перезапуск контейнера при его сбое
+      - .:/app 
+    restart: unless-stopped  

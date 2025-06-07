@@ -37,7 +37,7 @@ ML-сервис для предсказания рыночной цены авт
 2. **Создай виртуальное окружение и активируй:**
    ```bash
    python -m venv venv
-   .\venv\Scripts\Activate  
+   .\venv\Scripts\Activate
    ```
 
 3. **Установи зависимости:**
@@ -47,7 +47,7 @@ ML-сервис для предсказания рыночной цены авт
 
 4. **Обучи модель и сохрани её:**
    ```bash
-   python train.py
+   python app/pipeline.py
    ```
 
 5. **Запусти проект через Docker Compose:**
@@ -58,30 +58,50 @@ ML-сервис для предсказания рыночной цены авт
 - FastAPI API будет доступен на: [http://localhost:8000/docs](http://localhost:8000/docs)
 - Streamlit интерфейс будет доступен на: [http://localhost:8501](http://localhost:8501)
 
-## Тесты
+## Тесты API
 Запусти тесты API с помощью:
 ```bash
 pytest tests/test_api.py
 ```
 
+## Тесты tox
+Запусти тесты tox с помощью:
+```bash
+tox
+```
+
 ## Структура проекта
 ```
 car-price-predictor/
-├── app/
-│   ├── api/
-│   │   └── main.py        # FastAPI API для предсказаний
-│   └── model/             # Сохраненная модель
-├── tests/
-│   ├── test_api.py        # Тесты API
-├── streamlit_app.py       # Streamlit интерфейс
-├── train.py               # Скрипт обучения модели CatBoost
-├── requirements.txt       
-├── pyproject.toml         # Настройки пакета
-├── Dockerfile             # Docker образ API
-├── docker-compose.yml     # Docker Compose файл
-├── LICENSE               
-└── README.md             
-
+├── app/                   # Основная папка с приложением
+│   ├── api/              
+│   │   └── main.py        # Основная логика API для предсказаний
+│   ├── data/            
+│   │   └── cars.csv       # Датасет с данными о машинах
+│   ├── logs
+│   │   └── car.log        # Лог-файл
+│   ├── model/             # Модели
+│   │   ├── model.pkl      # Обученная модель
+│   │   └── results.json   # Результаты работы модели
+│   ├── config.yaml        # Конфигурационный файл
+│   ├── logger.py          # Настройки логирования
+│   ├── pipeline.py        # Логика обработки данных и обучения данных
+│   └── streamlit_app.py   # Интерфейс для приложения на Streamlit
+├── Docker/
+│   ├── Dockerfile         # Dockerfile
+│   └── supervisord.conf   # Конфигурация supervisord
+├── requirements/          # Папка с зависимостями проекта
+│   ├── dev_requirements.txt  # Зависимости для typechecks, stylechecks, lint
+│   ├── requirements.txt      # Основные зависимости
+│   └── test_requirements.txt # Зависимости для тестов
+├── tests/                
+│   └── test_api.py        # Тесты для API
+├── LICENSE                
+├── README.md              
+├── tox.ini                # Конфигурация для tox
+├── mypy.ini               # Конфигурация для mypy (проверка типов)
+├── docker-compose.yml     # Docker-compose сборка
+└── pyproject.toml         # Конфигурация системы сборки проекта       
 ```
 
 ---

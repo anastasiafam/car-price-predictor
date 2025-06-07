@@ -1,0 +1,8 @@
+black>=22.0.0
+flake8>=4.0.0
+isort>=5.10.0
+mypy>=0.910
+tox>=3.24.0
+types-requests
+types-pytz
+types-PyYAML

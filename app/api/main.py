@@ -1,4 +1,3 @@
-# app/api/main.py
 import os
 
 import joblib
@@ -7,17 +6,14 @@ from catboost import Pool
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-# Загружаем модель
 model_path = "app/model/model.pkl"
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"Model file not found at: {model_path}")
 
 model = joblib.load(model_path)
 
-# Инициализация FastAPI
 app = FastAPI()
 
-# Категориальные признаки для модели
 cat_features = [
     "Manufacturer",
     "Model",

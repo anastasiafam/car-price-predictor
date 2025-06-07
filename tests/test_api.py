@@ -1,5 +1,5 @@
-# tests/test_api.py
 from fastapi.testclient import TestClient
+
 from app.api.main import app
 
 client = TestClient(app)
@@ -23,6 +23,7 @@ valid_sample = {
     "Levy_rate": 0.05,
 }
 
+
 # Тест на успешное предсказание
 def test_api_prediction():
     response = client.post("/predict", json=valid_sample)
@@ -31,27 +32,31 @@ def test_api_prediction():
     assert "predicted_price" in json_data
     assert isinstance(json_data["predicted_price"], (float, int))
 
+
 # Тест на обязательные поля
 def test_api_missing_field():
     sample = valid_sample.copy()
-    del sample["Model"]  # Удаляем обязательное поле
+    del sample["Model"]
     response = client.post("/predict", json=sample)
     assert response.status_code == 422
     assert "detail" in response.json()
 
+
 # Тест на типы данных
 def test_api_invalid_field_type():
     sample = valid_sample.copy()
-    sample["Mileage"] = "много"  # Строка вместо числа
+    sample["Mileage"] = "много"
     response = client.post("/predict", json=sample)
     assert response.status_code == 422
     assert "detail" in response.json()
+
 
 # Тест на пустой запрос
 def test_api_empty_request():
     response = client.post("/predict", json={})
     assert response.status_code == 422
     assert "detail" in response.json()
+
 
 # Тест на граничные значения
 def test_api_edge_case_zero_mileage():
@@ -61,6 +66,7 @@ def test_api_edge_case_zero_mileage():
     assert response.status_code == 200
     json_data = response.json()
     assert "predicted_price" in json_data
+
 
 # Тест на корректность структуры
 def test_response_structure():

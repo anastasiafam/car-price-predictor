@@ -1,17 +1,11 @@
-# config.yaml
-
-# Общая информация о проекте
 package_name: car_price_predictor
 pipeline_name: car_price_pipeline
 pipeline_save_file: car_price_pipeline_output
 
-# Путь к общему датасету
-dataset_file: data/cars.csv  # Путь к полному датасету для обучения
+dataset_file: data/cars.csv  
 
-# Переменная для предсказания
 target: Price
 
-# Признаки для модели
 features:
   - Manufacturer
   - Model
@@ -30,13 +24,11 @@ features:
   - Age
   - Levy_rate
 
-# Переменные, которые нужно удалить
 variables_to_drop:
   - ID
   - Levy
   - Prod. year
 
-# Категориальные переменные
 categorical_vars:
   - Manufacturer
   - Model
@@ -47,7 +39,6 @@ categorical_vars:
   - Wheel
   - Color
 
-# Числовые переменные
 numerical_vars:
   - Engine_volume
   - Mileage
@@ -56,23 +47,18 @@ numerical_vars:
   - Age
   - Levy_rate
 
-# Категориальные переменные с пропущенными значениями
 categorical_vars_with_na:
   - Category
   - Fuel_type
   - Gear_box_type
   - Color
 
-# Числовые переменные с пропущенными значениями
 numerical_vars_with_na:
   - Mileage
   - Engine_volume
 
-# Размер тестовой выборки
 test_size: 0.2
 
-# Случайное состояние для воспроизводимости
 random_state: 42
 
-# Количество триалов optuna 
 n_trials: 15
