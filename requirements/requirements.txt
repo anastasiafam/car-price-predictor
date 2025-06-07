@@ -9,4 +9,3 @@ pydantic
 optuna
 streamlit
 pyyaml
-httpx

@@ -5,3 +5,4 @@ mypy>=0.910
 tox>=3.24.0
 pytest>=8.0.0
 requests>=2.25.0
+httpx>=0.27.0
